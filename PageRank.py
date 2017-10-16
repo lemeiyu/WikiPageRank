@@ -1,5 +1,5 @@
-import re
 import sys
+import re
 from operator import add
 
 from pyspark import SparkConf
@@ -72,7 +72,7 @@ if __name__ == "__main__":
 
         #print("\n\n\n\nNumber of Ranks: " + str(ranks.count()) + "\t" + str(itr) + " Stage of Iteration Complete.\n\n")
 
-    res = ranks.takeOrdered(sys.argv[3], key=lambda x: -x[1])
+    res = ranks.takeOrdered(int(sys.argv[3]), key=lambda x: -x[1])
 
     res = sc.parallelize(res)
     #print(ranks.takeOrdered(10, key=lambda x: -x[1]).__class__)
